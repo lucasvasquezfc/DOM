@@ -20,13 +20,13 @@ const lucas = new Pessoa('Lucas', 'Vasquez', 29);
 // Liste os construtores dos dados abaixo
 const li = document.querySelector('li');
 
-li;
-li.click;
-li.innerText;
-li.value;
-li.hidden;
-li.offsetLeft;
-li.click();
+li; // HTMLLIElement
+li.click; // Function
+li.innerText; // String
+li.value; // Number
+li.hidden; // Boolean
+li.offsetLeft; // Number
+li.click(); // undefined
 
 // Qual o construtor do dado abaixo:
-// li.hidden.constructor.name;
+li.hidden.constructor.name; // String
