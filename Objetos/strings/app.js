@@ -25,19 +25,19 @@ const transacoes = [
 ];
 
 let somaTaxa = 0;
-transacoes.forEach((elemento) => {
-  if (elemento.descricao.includes('Taxa')) {
-    somaTaxa += +elemento.valor.slice(3);
+transacoes.forEach((item) => {
+  if (item.descricao.includes('Taxa')) {
+    somaTaxa += +item.valor.slice(3);
   }
 });
 
 let somaRecebimento = 0;
-transacoes.forEach((elemento) => {
-  if (elemento.descricao.includes('Recebimento')) {
-    somaRecebimento += +elemento.valor.slice(3);
+transacoes.forEach((item) => {
+  if (item.descricao.includes('Recebimento')) {
+    somaRecebimento += +item.valor.slice(3);
   }
 });
-console.log(`Taxa: [${somaTaxa}] e Recebimento: [${somaRecebimento}]`);
+console.log(`Taxa: R$ ${somaTaxa},00 e Recebimento: R$ ${somaRecebimento},00`);
 
 // // Retorne uma array com a lista abaixo
 const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
@@ -70,10 +70,9 @@ const transacoes2 = [
   'TARIFA especial',
 ];
 
-let dadosTratados = [];
-
-transacoes2.forEach((valor) => {
-  dadosTratados.push(valor.trim());
+let totalTaxas = 0;
+transacoes2.forEach((item) => {
+  if (item.toLowerCase().includes('taxa')) totalTaxas++;
 });
 
-console.log(dadosTratados);
+console.log('Total de Taxas:', totalTaxas);
