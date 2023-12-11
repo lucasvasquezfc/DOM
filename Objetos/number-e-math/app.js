@@ -21,7 +21,6 @@ console.log(maiorNumero);
 // depois retorne a soma total
 
 const listaPrecos = ['R$ 59,99', ' R$ 100,222', 'R$ 230  ', 'r$  200'];
-const precosLimpos = [];
 
 function limparPreco(preco) {
   preco = +preco.toUpperCase().replace('R$', '').replace(',', '.').trim();
@@ -29,8 +28,8 @@ function limparPreco(preco) {
 }
 
 let soma = 0;
-listaPrecos.forEach((item) => {
-  precosLimpos.push(+limparPreco(item));
+listaPrecos.forEach((item, idx, arr) => {
+  arr[idx] = +limparPreco(item);
   soma += +limparPreco(item);
 });
 
@@ -38,4 +37,3 @@ console.log(listaPrecos);
 console.log(
   soma.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 );
-console.log(precosLimpos);
