@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        label {
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin-bottom: .5rem;
+            margin-top: 1rem;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="submit"],
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: .5rem;
+            border: 2px solid #ccc;
+            font-size: 1rem;
+            margin-bottom: .5rem;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .invalid {
+            border-color: red;
+        }
+
+        .erro {
+            color: red;
+        }
+    </style>
+
+    <form action="" name="contato" id="contato">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" required>
+        <span class="erro"></span>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <span class="erro"></span>
+        <label for="mensagem">Mensagem</label>
+        <textarea name="mensagem" id="mensagem"></textarea>
+
+        <input type="color">
+
+        <input type="submit" value="Enviar">
+    </form>
+    <span class="texto"></span>
+
+    <script>
+        const contato = document.querySelector('#contato')
+        const texto = document.querySelector('.texto');
+        const dados = {};
+
+        function validacao() {
+
+            const target = event.target;
+            console.log(target.value);
+
+            if (target.checked) {
+                texto.innerHTML = 'Eu aceito os termos e condições';
+            } else {
+                texto.innerHTML = '';
+            }
+
+            if (!target.checkValidity()) {
+                target.classList.add('invalid')
+                target.nextElementSibling.innerText = target.validationMessage;
+            }
+        }
+
+        function mudarBg() {
+            document.body.style.backgroundColor = event.target.value;
+        }
+
+        function handleChange(event) {
+            dados[event.target.name] = event.target.value;
+            console.log(dados);
+            mudarBg();
+            validacao();
+        }
+        contato.addEventListener('change', handleChange)
+    </script>
+</body>
+
+</html>
