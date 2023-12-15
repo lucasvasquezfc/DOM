@@ -5,12 +5,9 @@ const btnSearch = document.querySelector('.btn.search-cep');
 const btnJoke = document.querySelector('.btn.next-joke');
 const cep = document.querySelector('#cep');
 
-function handleSearch(event) {
-  event.preventDefault();
+function fetchCep() {
   if (cep.value) {
-    const urlCep = `https://viacep.com.br/ws/${cep.value}/json/`;
-
-    fetch(urlCep)
+    fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
       .then((r) => r.json())
       .then((address) => {
         conteudoEndereco.innerText = `${address.logradouro},
@@ -21,16 +18,9 @@ function handleSearch(event) {
   }
 }
 
-fetchBtc();
-setInterval(function () {
-  fetchBtc();
-  console.log('atualizou');
-}, 1000 * 30);
-
+// setInterval(fetchBtc, 1000 * 30);
 function fetchBtc() {
-  let blockChain = 'https://www.blockchain.com/pt/ticker';
-
-  fetch(blockChain)
+  fetch('https://www.blockchain.com/pt/ticker')
     .then((r) => r.json())
     .then((body) => {
       let reais = +body.BRL.buy;
@@ -42,15 +32,20 @@ function fetchBtc() {
     });
 }
 
-function handleJoke() {
-  const chuckJoke = 'https://api.chucknorris.io/jokes/random';
-
-  fetch(chuckJoke)
+function fetchJoke() {
+  fetch('https://api.chucknorris.io/jokes/random')
     .then((r) => r.json())
     .then((body) => {
       conteudoJoke.innerText = body.value;
     });
 }
 
-btnSearch.addEventListener('click', handleSearch);
-btnJoke.addEventListener('click', handleJoke);
+function handleClickBusca(event) {
+  event.preventDefault();
+  fetchCep();
+}
+
+btnSearch.addEventListener('click', handleClickBusca);
+btnJoke.addEventListener('click', fetchJoke);
+fetchBtc();
+fetchJoke();
