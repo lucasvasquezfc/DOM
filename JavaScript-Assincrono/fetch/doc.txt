@@ -1,0 +1,6 @@
+Essa é a melhor empresa.
+
+que existe para trabalhar.
+
+Esse é apenas um texto para usar como teste
+na aula sobre fetch.
