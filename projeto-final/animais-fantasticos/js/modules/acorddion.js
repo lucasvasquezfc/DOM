@@ -18,5 +18,3 @@ export default function initAccordion() {
     });
   }
 }
-
-console.log('mais uma vez');
