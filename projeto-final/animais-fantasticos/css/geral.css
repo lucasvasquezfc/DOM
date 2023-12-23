@@ -226,23 +226,22 @@ body {
 .azul {
     background-color: lightblue;
 }
-
-
-.js [data-tab="content"] section.ativo {
-    display: block !important;
-    
-}
-
+/* 
 .js [data-anime="show-right"] {
     animation: show-right .5s forwards;
 }
 
 .js [data-anime="show-down"] {
     animation: show-down .5s forwards;
-}
+} */
 
 .js [data-tab="content"] section {
     display: none; 
+}
+
+.js [data-tab="content"] section.ativo {
+    display: block !important;
+    animation: show-right .5s forwards
 }
 
 .js [data-tab="menu"] li {    
