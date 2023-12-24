@@ -31,5 +31,6 @@ export default class TabNav {
       this.tabContent[0].classList.add(this.activeClass);
       this.tabMenu[0].classList.add(this.activeClass);
     }
+    return this;
   }
 }
