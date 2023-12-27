@@ -3,6 +3,7 @@ import Accordion from './modules/acorddion.js';
 import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
+
 import ScrollAnima from './modules/scroll-anima.js';
 
 import fetchAnimais from './modules/fetch-animais.js';
