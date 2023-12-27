@@ -1,10 +1,9 @@
-import initAnimacaoScroll from './modules/scroll-animacao.js';
-
 import ScrollSuave from './modules/scroll-suave.js';
 import Accordion from './modules/acorddion.js';
 import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
+import ScrollAnima from './modules/scroll-anima.js';
 
 import fetchAnimais from './modules/fetch-animais.js';
 import fetchBitcoin from './modules/fetch-bitcoin.js';
@@ -35,7 +34,8 @@ modal.init();
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
-initAnimacaoScroll();
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
+scrollAnima.init();
 
 initDropdownMenu();
 initMenuMobile();
