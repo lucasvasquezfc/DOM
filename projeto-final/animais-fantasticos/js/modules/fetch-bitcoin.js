@@ -1,16 +1,11 @@
-export default function initFetchBitcoin() {}
-const preco = document.querySelector('.btc-preco');
+export default function fetchBitcoin(url, preco) {
+  preco = document.querySelector(preco);
 
-function fetchBtc(url) {
   fetch(url)
     .then((r) => r.json())
     .then((body) => {
       const reais = 100 / body.BRL.buy;
-      // const formatar = new Intl.NumberFormat('pt-BR', {
-      //   style: 'currency',
-      //   currency: 'BRL',
-      // });
-      // preco.innerText = formatar.format(reais);
+
       preco.innerText = reais.toFixed(6);
     })
     .catch((erro) => {
@@ -18,4 +13,8 @@ function fetchBtc(url) {
     });
 }
 
-fetchBtc('https://www.blockchain.com/pt/ticker');
+// const formatar = new Intl.NumberFormat('pt-BR', {
+//   style: 'currency',
+//   currency: 'BRL',
+// });
+// preco.innerText = formatar.format(reais);
